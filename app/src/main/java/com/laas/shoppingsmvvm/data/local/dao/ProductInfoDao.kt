@@ -11,9 +11,9 @@ interface ProductInfoDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addProducts(products: List<ProductInfoEntity>)
 
-    @Query("SELECT * FROM product_info_entity")
+    @Query("SELECT * FROM productinfo")
     suspend fun getProductsInfo(): List<ProductInfoEntity>
 
-    @Query("DELETE FROM product_info_entity WHERE id !=0")
+    @Query("DELETE FROM productinfo WHERE id !=0")
     suspend fun deleteAllProducts()
 }

@@ -5,10 +5,11 @@ import com.google.gson.Gson
 
 class GsonParser(private val gson: Gson) : JsonParser {
     override fun <T> fromJson(json: String, type: Type): T? {
-        return gson.fromJson(json, type)
+       return gson.fromJson(json,type)
     }
 
-    override fun <T> toJson(obj: Object, type: Type): String? {
-        return gson.toJson(obj, type)
+    override fun <T> toJson(obj: T, type: Type): String? {
+       return gson.toJson(obj,type)
     }
+
 }

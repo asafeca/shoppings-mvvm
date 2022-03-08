@@ -2,15 +2,16 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
-    compileSdk 32
+    compileSdk 31
 
     defaultConfig {
         applicationId "com.laas.shoppingsmvvm"
-        minSdk 23
-        targetSdk 32
+        minSdk 21
+        targetSdk 31
         versionCode 1
         versionName "1.0"
 
@@ -56,6 +57,7 @@ dependencies {
     implementation 'androidx.hilt:hilt-navigation-compose:1.0.0-alpha03'
 
     // Room
+    implementation 'androidx.room:room-ktx:2.3.0'
     implementation "androidx.room:room-runtime:2.3.0"
     kapt "androidx.room:room-compiler:2.3.0"
 

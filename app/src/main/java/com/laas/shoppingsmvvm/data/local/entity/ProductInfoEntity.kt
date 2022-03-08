@@ -3,7 +3,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.laas.shoppingsmvvm.domain.model.ProductInfoModel
 
-@Entity(tableName = "product_info_entity")
+@Entity(tableName = "productinfo")
 data class ProductInfoEntity(
     val productName: String,
     val productPrice: Float,

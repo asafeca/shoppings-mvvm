@@ -22,4 +22,10 @@
     <style name="Theme.ShoppingsMVVM.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.ShoppingsMVVM.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="CustomOutlineBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="colorOutline">@color/primary</item>
+        <item name="colorPrimary">@color/primary</item>
+    </style>
+
 </resources>

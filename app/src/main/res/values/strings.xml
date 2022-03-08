@@ -10,4 +10,14 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title">Shoppings</string>
+    <string name="login_title">Meu Beats</string>
+    <string name="login_subtitle">Especializado em fones para deejay</string>
+    <string name="username">Usuário</string>
+    <string name="password">Senha</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_app_login">AppLoginActivity</string>
+    <string name="user_missing_error">Usuário é obrigatório</string>
+    <string name="login_button_text">Entrar</string>
+    <string name="not_yet_signed">Ainda não é cadastrado(a)?</string>
+    <string name="about_link"><a href='http://google.com'>Inscreva-se</a></string>
 </resources>
