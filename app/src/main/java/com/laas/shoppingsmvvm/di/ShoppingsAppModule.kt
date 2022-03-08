@@ -4,23 +4,42 @@ import android.app.Application
 import androidx.room.Room
 import com.google.gson.Gson
 import com.laas.shoppingsmvvm.data.local.ProductInfoDatabase
-import com.laas.shoppingsmvvm.data.remote.ShoppingsApi
+import com.laas.shoppingsmvvm.data.remote.CommonApi
+import com.laas.shoppingsmvvm.data.remote.ProductInfoService
 import com.laas.shoppingsmvvm.data.repository.ProductInfoRepositoryImpl
 import com.laas.shoppingsmvvm.data.util.Converter
 import com.laas.shoppingsmvvm.data.util.GsonParser
-import com.laas.shoppingsmvvm.domain.repository.ProductInfoRepository
 import com.laas.shoppingsmvvm.domain.usecase.GetProductsInfo
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Singleton
 
-@Module
-@InstallIn(SingletonComponent::class)
-object ShoppingsAppModule {
+
+class ShoppingsAppModule : Application() {
+
+    val shoppingsDataBase = Room.databaseBuilder(
+        Application(),
+        ProductInfoDatabase::class.java,
+        "shoppings_db"
+    )
+        .addTypeConverter(Converter(GsonParser(Gson())))
+        .build()
+
+
+    val getProductInfo by lazy {
+        GetProductsInfo(
+            ProductInfoRepositoryImpl(
+                dao = shoppingsDataBase.dao,
+                api = productinfoService
+            )
+        )
+
+    }
+
+
+    private val productinfoService by lazy {
+        CommonApi.Create().create(ProductInfoService::class.java)
+    }
+
+
+    /*
 
     @Provides
     @Singleton
@@ -63,5 +82,7 @@ object ShoppingsAppModule {
             .create(ShoppingsApi::class.java)
 
     }
+
+    */
 
 }

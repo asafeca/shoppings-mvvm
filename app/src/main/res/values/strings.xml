@@ -19,5 +19,9 @@
     <string name="user_missing_error">Usuário é obrigatório</string>
     <string name="login_button_text">Entrar</string>
     <string name="not_yet_signed">Ainda não é cadastrado(a)?</string>
-    <string name="about_link"><a href='http://google.com'>Inscreva-se</a></string>
+    <string name="about_link"><a href='https://google.com'>Inscreva-se</a></string>
+    <string name="logout">Logout</string>
+    <string name="question_mark">\?</string>
+    <string name="loading">Carregando Informações, Aguarde...</string>
+    <string name="empty_list_error">Lista vazia</string>
 </resources>

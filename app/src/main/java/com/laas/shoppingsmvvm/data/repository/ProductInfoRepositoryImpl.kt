@@ -2,7 +2,7 @@ package com.laas.shoppingsmvvm.data.repository
 
 import com.laas.shoppingsmvvm.core.util.Resource
 import com.laas.shoppingsmvvm.data.local.dao.ProductInfoDao
-import com.laas.shoppingsmvvm.data.remote.ShoppingsApi
+import com.laas.shoppingsmvvm.data.remote.ProductInfoService
 import com.laas.shoppingsmvvm.domain.model.ProductInfoModel
 import com.laas.shoppingsmvvm.domain.repository.ProductInfoRepository
 import kotlinx.coroutines.flow.Flow
@@ -12,7 +12,7 @@ import java.io.IOException
 
 class ProductInfoRepositoryImpl(
     private val dao: ProductInfoDao,
-    private val api: ShoppingsApi
+    private val api: ProductInfoService
 ) : ProductInfoRepository {
     override fun getProductsInfo(): Flow<Resource<List<ProductInfoModel>>> = flow {
         emit(Resource.Loading())
