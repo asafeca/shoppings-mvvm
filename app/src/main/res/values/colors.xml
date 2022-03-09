@@ -11,4 +11,5 @@
     <color name="primary_gray">#F0F0F0</color>
     <color name="card_bgd_color">#121212</color>
     <color name="secondary">#6200EE</color>
+    <color name="secondary_green">#70EFDE</color>
 </resources>
