@@ -12,11 +12,12 @@ import com.laas.shoppingsmvvm.core.util.Resource
 import com.laas.shoppingsmvvm.data.adapter.ProductInfoAdapter
 import com.laas.shoppingsmvvm.data.adapter.listeners.ProductInfoListener
 import com.laas.shoppingsmvvm.databinding.ActivityMainBinding
+import com.laas.shoppingsmvvm.di.ShoppingsApp
 import com.laas.shoppingsmvvm.domain.model.ProductInfoModel
 import com.laas.shoppingsmvvm.presentation.AppLoginActivity
 import com.laas.shoppingsmvvm.presentation.viewmodel.ProductInfoViewModel
+import com.laas.shoppingsmvvm.presentation.viewmodel.ProductInfoViewModelFactory
 import dmax.dialog.SpotsDialog
-import java.lang.Error
 
 class MainActivity : AppCompatActivity(), ProductInfoListener {
 
@@ -39,12 +40,9 @@ class MainActivity : AppCompatActivity(), ProductInfoListener {
 
     private fun prepareFields() {
 
-
-
         alertDialog = SpotsDialog.Builder().setContext(this).build()
         recyclerview = findViewById(R.id.recycler_view)
         alertDialog.setMessage(R.string.loading.toString())
-
 
         BTN_LOGOUT = findViewById(R.id.btn_logout)
         BTN_LOGOUT.setOnClickListener {
@@ -52,8 +50,6 @@ class MainActivity : AppCompatActivity(), ProductInfoListener {
             startActivity(intent)
             finish()
         }
-
-        /*
 
         productViewModel.onGet { result ->
             when (result) {
@@ -82,11 +78,11 @@ class MainActivity : AppCompatActivity(), ProductInfoListener {
 
         }
 
-        */
-
 
     }
 
 
-    private val productViewModel: ProductInfoViewModel by viewModels()
+    private val productViewModel: ProductInfoViewModel by viewModels {
+        ProductInfoViewModelFactory((applicationContext as ShoppingsApp).getProductInfo)
+    }
 }

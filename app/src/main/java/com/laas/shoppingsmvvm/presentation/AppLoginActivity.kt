@@ -26,11 +26,14 @@ class AppLoginActivity : AppCompatActivity() {
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()
 
+
+
         BTN_LOGIN = findViewById(R.id.btn_login)
         BTN_LOGIN.setOnClickListener{
             var intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
+
     }
 }

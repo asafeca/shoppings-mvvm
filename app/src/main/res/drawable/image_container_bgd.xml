@@ -10,6 +10,6 @@
 
         />
     <solid
-        android:color="@color/product_bgd_color"
+        android:color="@color/primary_gray"
         />
 </shape>
