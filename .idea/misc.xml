@@ -13,8 +13,9 @@
         <entry key="app/src/main/res/drawable/image_container_bgd.xml" value="0.21666666666666667" />
         <entry key="app/src/main/res/drawable/login_custom_buttom.xml" value="0.160546875" />
         <entry key="app/src/main/res/layout/activity_app_login.xml" value="0.14" />
+        <entry key="app/src/main/res/layout/activity_details.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.17299898682877407" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.17299898682877407" />
@@ -27,5 +28,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.33" />
+      </ProjectState>
+    </option>
   </component>
 </project>

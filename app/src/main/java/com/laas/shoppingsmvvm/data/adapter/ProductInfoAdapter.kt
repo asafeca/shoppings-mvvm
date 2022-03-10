@@ -25,7 +25,7 @@ class ProductInfoAdapter(
             productName = itemView.findViewById(R.id.product_name)
             productPrice = itemView.findViewById(R.id.price)
             rating = itemView.findViewById(R.id.rating)
-            reviews = itemView.findViewById(R.id.reviewers)
+            reviews = itemView.findViewById(R.id.review)
 
         }
 
@@ -43,7 +43,7 @@ class ProductInfoAdapter(
         holder.productName.text = product.productName
         holder.productPrice.text = product.productCurrency + " " + product.productPrice.toString()
         holder.rating.text = product.productRating.toString()
-        holder.reviews.text = product.productReviews.toString()
+        holder.reviews.text = product.productReviews.toString()+" Reviews"
 
         holder.itemView.setOnClickListener {
             listener.onProductClick(product)

@@ -3,19 +3,32 @@ package com.laas.shoppingsmvvm
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.core.view.get
 import androidx.recyclerview.widget.RecyclerView
+import com.laas.shoppingsmvvm.core.util.Resource
+import com.laas.shoppingsmvvm.data.adapter.ProductInfoAdapter
 import com.laas.shoppingsmvvm.data.adapter.listeners.ProductInfoListener
 import com.laas.shoppingsmvvm.databinding.ActivityMainBinding
 import com.laas.shoppingsmvvm.di.ShoppingsApp
 import com.laas.shoppingsmvvm.domain.model.ProductInfoModel
 import com.laas.shoppingsmvvm.presentation.AppLoginActivity
+import com.laas.shoppingsmvvm.presentation.DetailsActivity
 import com.laas.shoppingsmvvm.presentation.viewmodel.ProductInfoViewModel
 import com.laas.shoppingsmvvm.presentation.viewmodel.ProductInfoViewModelFactory
 import dmax.dialog.SpotsDialog
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity(), ProductInfoListener {
 
@@ -23,6 +36,7 @@ class MainActivity : AppCompatActivity(), ProductInfoListener {
     private lateinit var BTN_LOGOUT: Button
     lateinit var recyclerview: RecyclerView
     lateinit var alertDialog: AlertDialog
+    var count: Float = 0F
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,9 +44,13 @@ class MainActivity : AppCompatActivity(), ProductInfoListener {
         setContentView(binding.root)
         prepareFields()
 
+
     }
 
+
     override fun onProductClick(product: ProductInfoModel) {
+        var intent = Intent(this@MainActivity, DetailsActivity::class.java)
+        startActivity(intent)
 
     }
 
@@ -47,12 +65,12 @@ class MainActivity : AppCompatActivity(), ProductInfoListener {
 
         BTN_LOGOUT = findViewById(R.id.btn_logout)
         BTN_LOGOUT.setOnClickListener {
-            var intent = Intent(this, AppLoginActivity::class.java)
+            var intent = Intent(this@MainActivity, AppLoginActivity::class.java)
             startActivity(intent)
             finish()
         }
 
-        /*
+
 
         productViewModel.onGet { result ->
             when (result) {
@@ -60,19 +78,25 @@ class MainActivity : AppCompatActivity(), ProductInfoListener {
 
                     if (result.data!!.isNotEmpty()) {
                         alertDialog.cancel()
-                        recyclerview.adapter =
-                            ProductInfoAdapter(result.data, this)
+
+                        // AVOIDING Only the original thread that created a view hierarchy can touch its views. Error
+
+                        this@MainActivity.runOnUiThread(Runnable {
+                            recyclerview.adapter =
+                                ProductInfoAdapter(result.data, this@MainActivity)
+                            recyclerview.setHasFixedSize(true)
+                        })
+
 
                     } else {
                         alertDialog.cancel()
 
-                        Toast.makeText(this, R.string.empty_list_error, Toast.LENGTH_LONG).show()
 
                     }
                 }
                 is Resource.Error -> {
                     alertDialog.cancel()
-                    Toast.makeText(this, result.message, Toast.LENGTH_LONG).show()
+
                 }
                 is Resource.Loading -> {
                     alertDialog.show()
@@ -80,8 +104,6 @@ class MainActivity : AppCompatActivity(), ProductInfoListener {
             }
 
         }
-
-        */
 
 
     }

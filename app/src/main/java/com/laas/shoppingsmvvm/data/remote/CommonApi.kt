@@ -10,7 +10,7 @@ class CommonApi {
             return Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("http://")
+                .baseUrl("https://api.dictionaryapi.dev/")
                 .build()
 
         }
