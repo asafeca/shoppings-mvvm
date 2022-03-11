@@ -24,4 +24,6 @@
     <string name="question_mark">\?</string>
     <string name="loading">Carregando Informações, Aguarde...</string>
     <string name="empty_list_error">Lista vazia</string>
+    <string name="buy">Comprar</string>
+    <string name="connexao">Conexão</string>
 </resources>
