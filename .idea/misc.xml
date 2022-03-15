@@ -12,7 +12,7 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.26944444444444443" />
         <entry key="app/src/main/res/drawable/image_container_bgd.xml" value="0.21666666666666667" />
         <entry key="app/src/main/res/drawable/login_custom_buttom.xml" value="0.160546875" />
-        <entry key="app/src/main/res/layout/activity_app_login.xml" value="0.14" />
+        <entry key="app/src/main/res/layout/activity_app_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_details.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />

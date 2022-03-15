@@ -38,7 +38,7 @@
         app:srcCompat="@drawable/headsets" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/img_question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -49,7 +49,12 @@
         app:layout_constraintStart_toEndOf="@+id/btn_logout"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/circular_button" />
+        android:foregroundTint="@null"
+        android:backgroundTint="@null"
+        android:foregroundTintMode="src_atop"
+        android:src="@drawable/circular_background_question"
+        android:background="@drawable/circular_background_question"
+        />
 
     <Button
         android:id="@+id/btn_logout"
@@ -62,6 +67,7 @@
         android:text="@string/logout"
         android:textAllCaps="false"
         android:textColor="@color/white"
+        app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
