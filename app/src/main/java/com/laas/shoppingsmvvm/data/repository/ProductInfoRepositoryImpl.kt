@@ -16,12 +16,14 @@ class ProductInfoRepositoryImpl(
     override suspend fun getProductsInfo(callBack: (Resource<List<ProductInfoModel>>) -> Unit) {
 
         val result = dao.getProductsInfo().map { it.toProductInfoModel() }
+        val remoteData = getData()//api.getProductsInfo()
 
         try {
-            val remoteData = getData()//api.getProductsInfo()
             dao.deleteAllProducts()
-            dao.addProducts(remoteData.map { it.toProductsInfoEntity() })
-            callBack(Resource.Success<List<ProductInfoModel>>(remoteData.map { it.toProductsInfoModel() }))
+            dao.addProducts(remoteData.map { it.toProductsInfoEntity() }.toList())
+            callBack(Resource.Success<List<ProductInfoModel>>(remoteData.map { it.toProductsInfoModel() }
+                .toList()))
+
 
         } catch (e: IOException) {
 
@@ -29,8 +31,8 @@ class ProductInfoRepositoryImpl(
 
         }
 
-        callBack(Resource.Success<List<ProductInfoModel>>(result))
-
+        callBack(Resource.Success<List<ProductInfoModel>>(remoteData.map { it.toProductsInfoModel() }
+            .toList()))
     }
 
     fun getData(): List<ProductsInfoDto> {

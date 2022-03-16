@@ -28,12 +28,14 @@ class MainActivity : AppCompatActivity(), ProductInfoListener {
     lateinit var recyclerview: RecyclerView
     lateinit var alertDialog: AlertDialog
     var count: Float = 0F
+    private lateinit var imgRefresh:ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         prepareFields()
+        loadData()
     }
 
 
@@ -50,6 +52,11 @@ class MainActivity : AppCompatActivity(), ProductInfoListener {
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()
 
+        imgRefresh = findViewById(R.id.img_refresh)
+        imgRefresh.setOnClickListener{
+            loadData()
+        }
+
         alertDialog = SpotsDialog.Builder().setContext(this).build()
         recyclerview = findViewById(R.id.recycler_view)
         alertDialog.setMessage(R.string.loading.toString())
@@ -63,11 +70,15 @@ class MainActivity : AppCompatActivity(), ProductInfoListener {
 
 
 
+
+
+
+    }
+
+    private fun loadData(){
         productViewModel.onGet { result ->
             when (result) {
                 is Resource.Success -> {
-
-                    recyclerview.adapter = null
 
                     if (result.data!!.isNotEmpty()) {
                         alertDialog.cancel()
@@ -75,6 +86,7 @@ class MainActivity : AppCompatActivity(), ProductInfoListener {
                         // AVOIDING Only the original thread that created a view hierarchy can touch its views. Error
 
                         this@MainActivity.runOnUiThread(Runnable {
+
                             recyclerview.adapter =
                                 ProductInfoAdapter(result.data, this@MainActivity)
                             recyclerview.setHasFixedSize(true)
@@ -83,8 +95,6 @@ class MainActivity : AppCompatActivity(), ProductInfoListener {
 
                     } else {
                         alertDialog.cancel()
-
-
                     }
                 }
                 is Resource.Error -> {
@@ -97,8 +107,6 @@ class MainActivity : AppCompatActivity(), ProductInfoListener {
             }
 
         }
-
-
     }
 
 
