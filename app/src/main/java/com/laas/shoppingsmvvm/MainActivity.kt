@@ -3,19 +3,11 @@ package com.laas.shoppingsmvvm
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.core.view.get
-import androidx.navigation.fragment.FragmentNavigator
 import androidx.recyclerview.widget.RecyclerView
 import com.laas.shoppingsmvvm.core.util.Resource
 import com.laas.shoppingsmvvm.data.adapter.ProductInfoAdapter
@@ -28,9 +20,6 @@ import com.laas.shoppingsmvvm.presentation.DetailsActivity
 import com.laas.shoppingsmvvm.presentation.viewmodel.ProductInfoViewModel
 import com.laas.shoppingsmvvm.presentation.viewmodel.ProductInfoViewModelFactory
 import dmax.dialog.SpotsDialog
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity(), ProductInfoListener {
 
@@ -39,15 +28,12 @@ class MainActivity : AppCompatActivity(), ProductInfoListener {
     lateinit var recyclerview: RecyclerView
     lateinit var alertDialog: AlertDialog
     var count: Float = 0F
-    private lateinit var imgQuestion:ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         prepareFields()
-
-
     }
 
 
@@ -67,8 +53,6 @@ class MainActivity : AppCompatActivity(), ProductInfoListener {
         alertDialog = SpotsDialog.Builder().setContext(this).build()
         recyclerview = findViewById(R.id.recycler_view)
         alertDialog.setMessage(R.string.loading.toString())
-        imgQuestion = findViewById(R.id.img_question)
-        imgQuestion.setImageResource(0)
 
         BTN_LOGOUT = findViewById(R.id.btn_logout)
         BTN_LOGOUT.setOnClickListener {
@@ -82,6 +66,8 @@ class MainActivity : AppCompatActivity(), ProductInfoListener {
         productViewModel.onGet { result ->
             when (result) {
                 is Resource.Success -> {
+
+                    recyclerview.adapter = null
 
                     if (result.data!!.isNotEmpty()) {
                         alertDialog.cancel()
