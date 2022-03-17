@@ -10,9 +10,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 
 
-class ShoppingsApp: Application() {
+class ShoppingsApp : Application() {
     private val applicationScope = CoroutineScope(SupervisorJob())
-    val shoppingsDataBase by lazy { ProductInfoDatabase.getDatabase(this, applicationScope)}
+    val shoppingsDataBase by lazy { ProductInfoDatabase.getDatabase(this, applicationScope) }
 
 
     val getProductInfo by lazy {
@@ -23,6 +23,13 @@ class ShoppingsApp: Application() {
             )
         )
 
+    }
+
+    val getRepositoryImpl by lazy {
+        ProductInfoRepositoryImpl(
+            dao = shoppingsDataBase.dao,
+            api = productinfoService
+        )
     }
 
     private val productinfoService by lazy {

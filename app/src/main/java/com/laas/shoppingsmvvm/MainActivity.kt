@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity(), ProductInfoListener {
     lateinit var recyclerview: RecyclerView
     lateinit var alertDialog: AlertDialog
     var count: Float = 0F
-    private lateinit var imgRefresh:ImageView
+    private lateinit var imgSearch:ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,8 +52,8 @@ class MainActivity : AppCompatActivity(), ProductInfoListener {
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()
 
-        imgRefresh = findViewById(R.id.img_refresh)
-        imgRefresh.setOnClickListener{
+        imgSearch = findViewById(R.id.img_search)
+        imgSearch.setOnClickListener{
             loadData()
         }
 
