@@ -4,7 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
+import com.laas.shoppingsmvvm.R
+import com.laas.shoppingsmvvm.data.util.GsonParser
 import com.laas.shoppingsmvvm.databinding.ActivityDetailsBinding
+import com.laas.shoppingsmvvm.domain.model.ProductInfoModel
 
 class DetailsActivity : AppCompatActivity() {
 
@@ -23,11 +27,21 @@ class DetailsActivity : AppCompatActivity() {
         actionBar?.hide()
 
         var intent: Intent = getIntent()
-        binding.productName.text = intent.getStringExtra("productName")
+        val product: ProductInfoModel = intent.getStringExtra("product")
+            ?.let { GsonParser(Gson()).fromJson(it, ProductInfoModel::class.java) }!!
+
+        binding.productName.text = product.productName
+        binding.connectionType.text = product.connectionType
+        binding.compatibility.text = product.compatibility
+        binding.powerSupplyType.text = product.powerSupplySource
+        binding.batteryLifeTime.text =
+            product.batteryLifeTime.toString()+" "+getString(R.string.hours)
+        binding.captureType.text = product.capture
 
         binding.imgClose.setOnClickListener {
             finish()
         }
+
 
     }
 }

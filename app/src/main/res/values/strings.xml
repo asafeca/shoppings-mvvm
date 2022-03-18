@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ShoppingsMVVM</string>
+    <string name="app_name">Beats</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -25,5 +25,19 @@
     <string name="loading">Carregando Informações, Aguarde...</string>
     <string name="empty_list_error">Lista vazia</string>
     <string name="buy">Comprar</string>
-    <string name="connexao">Conexão</string>
+
+    <string name="waiting_message">Aguarde um momento...</string>
+    <string name="connection_type_label">Conexão</string>
+    <string name="compatibility_label">Compatibilidade</string>
+    <string name="power_supply_type_label">Alimentação</string>
+    <string name="battery_life_time_label">Autonomia</string>
+    <string name="capture_type_label">Captação</string>
+
+    <string name="connection_type_value">Blutooth</string>
+    <string name="compatibility_value">Blutooth 4.1</string>
+    <string name="power_supply_type_value">Bateria</string>
+    <string name="battery_life_time_value">16 horas</string>
+    <string name="capture_type_value">Semi activa</string>
+    <string name="selected_product_name">Modelo 01</string>
+    <string name="hours">horas</string>
 </resources>

@@ -10,6 +10,11 @@ data class ProductInfoEntity(
     val productRating: Float,
     val productCurrency: String,
     val productReviews: Int,
+    val connectionType:String,
+    val compatibility:String,
+    val powerSupplySource:String,
+    val batteryLifeTime:Float,
+    val capture:String,
     @PrimaryKey val id: Int
 
 ) {
@@ -20,6 +25,11 @@ data class ProductInfoEntity(
             productRating = productRating,
             productCurrency = productCurrency,
             productReviews = productReviews,
+            connectionType = connectionType,
+            compatibility = compatibility,
+            powerSupplySource = powerSupplySource,
+            batteryLifeTime = batteryLifeTime,
+            capture = capture,
             id = id
         )
     }

@@ -57,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/dm_sans_bold"
-        android:text="Modelo 01"
+        android:text="@string/selected_product_name"
         android:textColor="@color/white"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -71,7 +71,7 @@
         android:layout_height="19dp"
         android:layout_marginStart="88dp"
         android:fontFamily="@font/dm_sans_bold"
-        android:text="Conexão"
+        android:text="@string/connection_type_label"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -80,12 +80,12 @@
         app:layout_constraintVertical_bias="0.579" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/connection_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="232dp"
         android:fontFamily="@font/dm_sans"
-        android:text="Blutooth"
+        android:text="@string/connection_type_value"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -99,7 +99,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:fontFamily="@font/dm_sans_bold"
-        android:text="Compatibilidade"
+        android:text="@string/compatibility_label"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -108,11 +108,11 @@
         app:layout_constraintVertical_bias="0.642" />
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/compatibility"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="232dp"
-        android:text="Blutooth 4.1"
+        android:text="@string/compatibility_value"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -126,7 +126,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
         android:fontFamily="@font/dm_sans_bold"
-        android:text="Alimentação"
+        android:text="@string/power_supply_type_label"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -135,12 +135,12 @@
         app:layout_constraintVertical_bias="0.697" />
 
     <TextView
-        android:id="@+id/textView23"
+        android:id="@+id/power_supply_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="232dp"
         android:fontFamily="@font/dm_sans"
-        android:text="Bateria"
+        android:text="@string/power_supply_type_value"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -154,7 +154,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
         android:fontFamily="@font/dm_sans_bold"
-        android:text="Autonomia"
+        android:text="@string/battery_life_time_label"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -163,12 +163,12 @@
         app:layout_constraintVertical_bias="0.746" />
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/battery_life_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="232dp"
         android:fontFamily="@font/dm_sans"
-        android:text="16 horas"
+        android:text="@string/battery_life_time_value"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -182,7 +182,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
         android:fontFamily="@font/dm_sans_bold"
-        android:text="Captação"
+        android:text="@string/capture_type_label"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -191,12 +191,12 @@
         app:layout_constraintVertical_bias="0.801" />
 
     <TextView
-        android:id="@+id/textView28"
+        android:id="@+id/capture_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="232dp"
         android:fontFamily="@font/dm_sans"
-        android:text="Semi activa"
+        android:text="@string/capture_type_value"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
